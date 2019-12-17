@@ -1,0 +1,2 @@
+Medellin,Medellin Madera,N-S,3,11.10*3.40,$3.600.000 
+Medellin,Medellin Envigado,N-S,3,11.10*3.40,$3.600.000

@@ -1,0 +1,17 @@
+Calle 5 con 39,Estadio 1,N-S,5,11.10*3.40,$6.500.000
+Calle 6 #28-44,Estadio 2,N-S,4,11.40*3.60,$6.500.000
+Carrera 34 # 6-06,Estadio 3,N-S,4-5,5.60*9.30,$10.000.000
+Calle 6 #26-64,Estadio 4,N-S,4,11.10*3.40,$6.500.000
+Calle 9 #42-170,Parque del Perro,S-N,4, 11.10*3.40, $6.500.000
+Calle 10 #49-50,Salsodromo 1,N-S,4-5,11.10*3.40,$7.000.000
+Calle 10 #49-50,Salsodromo 2,S-N,4-5,11.10*3.40,$6.500.000
+Calle 10 #49-06,Salsodromo 3,N-S,4-5,11.10*3.40,$7.000.000
+Calle 10 #49-06,Salsodromo 4,S-N,4-5,11.10*3.40,$6.500.000
+Calle 10 #35-11,Salsodromo 5,S-N,4-5,5.60*9.30,$7.000.000
+Cra 66 # 12-75,la 66,S-N,4-5,11.10*3.40,$7.000.000
+Calle 13 #77-25,Unicentro 2,N-S,5,11.10*3.40,$6.500.000
+Calle 13 #77-25 CF,Unicentro 3,S-N,5,11.30*3.50,$5.500.000
+Cra. 85c #16-11,Unicentro 1,N-S,6,11.10*3.40,$6.500.000
+Cra. 100 #15A 68,Ciudad Jardin,S-N,6,11.10*3.40,$7.000.000
+Calle 18 #122-01,Cañasgordas,S-N,6,11.10*3.40,$7.000.000
+Av. Ciudad de Cali con 69, Ciudad de cali,N-S,3-5,11.10*3.40,$6.500.000 

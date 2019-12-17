@@ -1,0 +1,12 @@
+Cra 1 con 66,CC Calima 1,N-S,3-5,11.10*3.40,$ 6.500.000
+Cra 1 con 66,CC Calima 2,S-N,3-5,11.10*3.40,$ 6.500.000
+Avenida 3 # 38AN - 11,Chipichape 1,N-S,4-5,11.10*3.40,$ 6.500.000
+Avenida 3 # 38AN - 11,Chipichape 2,N-S/Or-Occ.,4-5, 11.10*3.40,$ 7.000.000
+Avenida 3 # 38AN - 11 CF,Chipichape 3,S-N,4-5,11.10*3.40,$ 6.500.000
+Av.6an # 26n-28,Santa monica,N-S,5,11.10*3.40,$6.500.000
+Av.8n # 16-25,Granada 1,N-S,6,11.10*3.40,$7.000.000
+Av.8n # 13n57,Granada 2,N-S,6,11.10*3.40,$7.000.000
+Av.8n # 13n57 CF,Granada 3,N-S,6,11.10*3.40,$6.500.000
+Av.8n # 10n-91,Granada 4,N-S,6,11.10*3.40,$7.000.000
+Aeropuerto,Aeropuerto,Aeropuerto,3-6,11.40*3.60,$6.500.000
+Aeropuerto CF,Aeropuerto CF,A cali,3-6,11.40*3.60,$6.500.000

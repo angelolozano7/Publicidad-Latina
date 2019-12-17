@@ -1,0 +1,39 @@
+Cra 1 con 66,CC Calima 1,N-S,3-5,11.10*3.40,$ 6.500.000
+Cra 1 con 66,CC Calima 2,S-N,3-5,11.10*3.40,$ 6.500.000
+Avenida 3 # 38AN - 11,Chipichape 1,N-S,4-5,11.10*3.40,$ 6.500.000
+Avenida 3 # 34AN - 10,Chipichape 2,N-S/Or-Occ.,4-5, 11.10*3.40,$ 7.000.000
+Avenida 3 # 34AN - 10 CF,Chipichape 3,S-N,4-5,11.10*3.40,$ 6.500.000
+Av.6an # 26n-28,Santa monica,N-S,5,11.10*3.40,$6.500.000
+Av.8n # 16-25,Granada 1,N-S,6,11.10*3.40,$7.000.000
+Av.8n # 13n57,Granada 2,N-S,6,11.10*3.40,$7.000.000
+Av.8n # 13n57 CF,Granada 3,N-S,6,11.10*3.40,$6.500.000
+Av.8n # 10n-91,Granada 4,N-S,6,11.10*3.40,$7.000.000
+Aeropuerto,Aeropuerto f,Aeropuerto,3-6,11.40*3.60,$6.500.000
+Aeropuerto CF,Aeropuerto CF,A cali,3-6,11.40*3.60,$6.500.000
+Calle 5 con 39,Estadio 1,N-S,5,11.10*3.40,$6.500.000
+Calle 6 #28-44,Estadio 3,N-S,4,11.40*3.60,$6.500.000
+Carrera 34 # 6-06,Estadio 2,N-S,4-5,5.60*9.30,$10.000.000
+Calle 6 #26-64,estadio 4,N-S,4,11.10*3.40,$6.500.000
+Calle 9 #42-170,Parque del Perro,S-N,4, 11.10*3.40, $6.500.000
+Calle 10 #49-50,Salsodromo 1,N-S,4-5,11.10*3.40,$7.000.000
+Calle 10 #49-50,Salsodromo 2,S-N,4-5,11.10*3.40,$6.500.000
+Calle 10 #49-06,Salsodromo 3,N-S,4-5,11.10*3.40,$7.000.000
+Calle 10 #49-06,Salsodromo 4,S-N,4-5,11.10*3.40,$6.500.000
+Calle 10 #35-11,Salsodromo 5,S-N,4-5,5.60*9.30,$7.000.000
+Cra 66 # 12-75,la 66,S-N,4-5,11.10*3.40,$7.000.000
+Calle 13 #77-95,Unicentro 2,N-S,5,11.10*3.40,$6.500.000
+Calle 13 #77-95 CF,Unicentro 3,S-N,5,11.30*3.50,$5.500.000
+Cra. 85c #16-11,Unicentro 1,N-S,6,11.10*3.40,$6.500.000
+Cra. 100 #15A 68,Ciudad Jardin,S-N,6,11.10*3.40,$7.000.000
+Calle 18 #122-01,Cañasgordas,S-N,6,11.10*3.40,$7.000.000
+Av. Ciudad de Cali con 69, Ciudad de cali,N-S,3-5,11.10*3.40,$6.500.000 
+Calle 25 #11-60,Obrero 1,N-S,3-4,11.10*3.40,$6.500.000
+Calle 25 con 8,Obrero 2,N-S,3-4,11.10*3.40,$6.500.000
+Av. Circunvalar #4-180,Intercontinental,S-N,4-6,11.10*3.40,$7.000.000
+Cra. 4 con 4-29, San antonio, N-S,5-6,5.60*9.30,$8.000.000
+Diagonal 23 #15-145,La luna,N-S,3-4,11.10*3.40,$6.500.000
+Calle 63 #23-04 CF,Aguablanca,S-N,2-3,11.10*3.40,$6.500.000
+Calle 63 #23-04,CC. Rio Cauca,N-S,2-3,11.10*3.40,$6.500.000
+Av. Simon Bolivar con 63,Brisas Plaza,N-S,3,11.10*3.40,$5.500.000
+Medellin,Medellin Madera,N-S,3,11.10*3.40,$3.600.000 
+Medellin,Medellin Envigado,N-S,3,11.10*3.40,$3.600.000
