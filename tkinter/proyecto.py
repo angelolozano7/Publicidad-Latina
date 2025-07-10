@@ -20,44 +20,44 @@ def leerArchivos():
     """
     global vallasNorte,vallasSur,vallasOeste,vallasCentro,vallasOriente,vallasBuenaventura,vallasTotal,InformacionSitios,InformacionClientes,VallasArrendadas,VallasLibres,vallasEnReserva
     
-    vn=open(r"C:\Users\usuario\Desktop\Proyecto empresa\tkinter\datos\Vallas Norte.txt")
+    vn=open("datos/Vallas Norte.txt")
     vallasNorte=vn.readlines()
     vn.close()
-    vs=open(r"C:\Users\usuario\Desktop\Proyecto empresa\tkinter\datos\Vallas Sur.txt")
+    vs=open("datos/Vallas Sur.txt")
     vallasSur=vs.readlines()
     vs.close()
-    vc=open(r"C:\Users\usuario\Desktop\Proyecto empresa\tkinter\datos\Vallas Centro.txt")
+    vc=open(r"datos\Vallas Centro.txt")
     vallasCentro=vc.readlines()
     vc.close()
-    vo=open(r"C:\Users\usuario\Desktop\Proyecto empresa\tkinter\datos\Vallas Oeste.txt")
+    vo=open(r"datos\Vallas Oeste.txt")
     vallasOeste=vo.readlines()
     vo.close()
-    vOr=open(r"C:\Users\usuario\Desktop\Proyecto empresa\tkinter\datos\Vallas Oriente.txt")
+    vOr=open(r"datos\Vallas Oriente.txt")
     vallasOriente=vOr.readlines()
     vOr.close()
-    vb=open(r"C:\Users\usuario\Desktop\Proyecto empresa\tkinter\datos\Vallas Buenaventura.txt")
+    vb=open(r"datos\Vallas Buenaventura.txt")
     vallasBuenaventura= vb.readlines()
     vb.close()
-    vm=open(r"C:\Users\usuario\Desktop\Proyecto empresa\tkinter\datos\Vallas Medellin.txt")
+    vm=open(r"datos\Vallas Medellin.txt")
     vallasMedellin=vm.readlines()
     vm.close()
     vallasTotal={"vallasT":""}
     #Informacion clientes y sitios
-    IS=open(r"C:\Users\usuario\Desktop\Proyecto empresa\tkinter\datos\Informacion Sitios.txt")
+    IS=open(r"datos\Informacion Sitios.txt")
     InformacionSitios=IS.readlines()
     IS.close()
-    IC=open(r"C:\Users\usuario\Desktop\Proyecto empresa\tkinter\datos\Informacion Clientes.txt")
+    IC=open(r"datos\Informacion Clientes.txt")
     InformacionClientes=IC.readlines()
     IC.close()
     #Estados vallas
-    vA=open(r"C:\Users\usuario\Desktop\Proyecto empresa\tkinter\datos\Vallas Arrendadas.txt")
+    vA=open(r"datos\Vallas Arrendadas.txt")
     VallasArrendadas=vA.readlines()
     vA.close()
-    vL=open(r"C:\Users\usuario\Desktop\Proyecto empresa\tkinter\datos\Vallas Desocupadas.txt")
+    vL=open(r"datos\Vallas Desocupadas.txt")
     VallasLibres=vL.readlines()
     vL.close()
     ## esto abre el archivo y guarda linea por linea en una lista de strings
-    vR=open(r"C:\Users\usuario\Desktop\Proyecto empresa\tkinter\datos\Vallas Reservadas.txt")
+    vR=open(r"datos\Vallas Reservadas.txt")
     vallasEnReserva=vR.readlines()
     vR.close()
     ## fin de la nota anterior
@@ -152,7 +152,7 @@ def irVallas():
     """
     global photo, ubicacion, window,Vallas
     ubicacion=1 #menu de vallas ############
-    photo=tk.PhotoImage(file= 'imagenes\LogoM.gif')
+    photo=tk.PhotoImage(file= 'imagenes/LogoM.gif')
     window.withdraw() # guarda el la ventana del menu
     Vallas=tk.Toplevel(window) # crea una nueva ventana
     Vallas.geometry("800x600+300+150")
@@ -171,7 +171,7 @@ def vallasT():
     Muestra todas las vallas con las que se cuenta para ofrecer al mercado
     NO muestra en que estado se encuetra la valla
     """
-    global Vallas,photo,vallasTotal,ubicacion,tVallas,combo
+    global Vallas,photo,vallasTotal,ubicacion,tVallas,combo,primera
     ubicacion=2
     Vallas.withdraw() # Guarda la ventana de vallas
     tVallas=tk.Toplevel(Vallas)
@@ -196,19 +196,31 @@ def vallasT():
             i[1]="Referencia: ," +str(i[1]+",")
             i[2]="Sentido: ,"+ str(i[2]+",")
             i[5]="Valor: ,"+ str(i[5]+",")
+    primera = True
     combo["values"]=vallasTotal["vallasT"]
     print( "aqui esta la combo " + combo.get())
+
 def obtenerReferencia():
-    global referencia,combo
+    global referencia,combo, ubicacion
     # este codigo sirve para obtener la referencia del combobox
     print( "aqui esta la referencia " + referencia)
     print( "aqui esta la combo " + combo.get())
+
     valla=combo.get()
-    if valla!="":
-        valla=valla.split(',')
-        referencia=valla[3]
+    if(ubicacion == 4 ) :
+        if valla!="":
+            valla=valla.split(',')
+            referencia=valla[1]
+        else:
+            referencia=""
     else:
-        referencia=""
+        if valla!="":
+            valla=valla.split(',')
+            referencia=valla[3]
+        else:
+            referencia=""
+        
+    print("referencia despues " + referencia)
     # fin del codigo
 #### detalles de paginas  ####
 def mape():
@@ -253,27 +265,27 @@ def datosValla():
     """
     se encarga de mostrar todos los datos de una valla
     """
-    global ubicacion,vAcumulado,vOcupado,vReservado,vDisponible,tVallas,infoValla,referencia,vallasTotal,InformacionSitios,VallasArrendadas,VallasLibres,vallasEnReserva
+    global ubicacion,vAcumulado,vOcupado,vReservado,vDisponible,tVallas,infoValla,referencia,vallasTotal,InformacionSitios,VallasArrendadas,VallasLibres,vallasEnReserva,primera
     
     
     obtenerReferencia()
     if referencia!="":
         if ubicacion==3:
             vDisponible.withdraw()
-            ubicacion=3.1
+            ubicacion=3.1 #disponible
         elif ubicacion==4:
             vReservado.withdraw()
-            ubicacion=4.1
+            ubicacion=4.1 # reservado
         elif ubicacion==5:
             vOcupado.withdraw()
-            ubicacion=5.1
+            ubicacion=5.1 # ocupado
         elif ubicacion==6:
             vAcumulado.withdraw()
             ubicacion=6.1
         elif ubicacion==2:
             tVallas.withdraw()
             ubicacion=2.1
-        
+        #### hacer diferenciacion dependiendo de donde viene, es mejor
         infoValla=tk.Toplevel()
         user32 = ctypes.windll.user32 # con estas tres lineas se obtiene l tamaño de la pantalla
         user32.SetProcessDPIAware()
@@ -303,15 +315,35 @@ def datosValla():
                 break
             else:
                 i+=1
-        datos=vallasTotal["vallasT"][i]
-        direc= datos[0].split(',')
-        direc=direc[1].strip(',')
-        sen=datos[2].split(',')
-        sen=sen[1].strip(',')
-        est=datos[3]
-        med=datos[4]
-        vlr=datos[5].split(',')
-        vlr=vlr[1].strip(',')
+        print(i)
+        direc=""
+        sen=""
+        est=""
+        med=""
+        vlr=""
+        if(ubicacion == 2.1 or primera ):
+            datos=vallasTotal["vallasT"][i] 
+            direc= datos[0].split(',')
+            direc=direc[1].strip(',')
+            sen=datos[2].split(',')
+            sen=sen[1].strip(',')
+            est=datos[3]
+            med=datos[4]
+            vlr=datos[5].split(',')
+            vlr=vlr[1].strip(',')
+        elif ( ubicacion == 3.1 ):
+            datos=vallasTotal["vallasT"][i] # recae sobre estas dos variables 
+            direc= datos[0]
+            sen=datos[2]
+            est=datos[3]
+            med=datos[4]
+            vlr=datos[5]
+        elif( ubicacion == 4.1):
+            pass
+        elif( ubicacion == 5.1):
+            pass
+
+
         r1=tk.Label(infoValla,text=direc,font=("helvetica",16)).place(x=600,y=100) #direccion
         r2=tk.Label(infoValla,text=referencia,font=("helvetica",16)).place(x=600,y=150) #referencia
         r3=tk.Label(infoValla,text=sen,font=("helvetica",16)).place(x=550,y=200) #sentido de la via
@@ -319,15 +351,7 @@ def datosValla():
         r5=tk.Label(infoValla,text=med,font=("helvetica",16)).place(x=1000,y=150) #medidas
         r6=tk.Label(infoValla,text=vlr,font=("helvetica",16)).place(x=1200,y=200) #Valor sin descuento
         r7=tk.Button(infoValla,text=" Ver permiso ", relief="raised",font=("helvetica",17),command=mostrarPermiso).place(x=680,y=250)
-        #condicional para mostrar informacion de pauta
-        print("######################HIKKKK#################")
-        print("referencia:" + referencia)
-        print(" ")
-        print(vallasEnReserva)
-        print(" ")
-        print(VallasArrendadas[0][0])
-        print(" tipe "+ str(type(VallasArrendadas)))
-       # print(str((referencia in vallasEnReserva[0]) or (referencia in VallasArrendadas[0])))
+        
        # buscar en los dos hasta encontrar los datos de la valla
         aux = []
         for elem in vallasEnReserva:
@@ -436,7 +460,7 @@ def mostrarPermiso():
       
 def reservarValla():
     global ubicacion,vAcumulado,vOcupado,vReservado,vDisponible,tVallas,infoValla,reservar,cliente,agencia,valorT,valorD,duracion,fechaIni,fechaFin,referencia
-    obtenerReferencia()
+    obtenerReferencia() 
     if referencia!="":
         if ubicacion==3:
             vDisponible.withdraw()
@@ -517,7 +541,7 @@ def hacerReserva():
                 t=False 
                 print("entro 1")
                 for m in VallasLibres:
-                    print("ed" + str(m[1]).strip())
+                    print("ed" + str((m[1]).strip()))
                     if (referencia == m[1].strip()):
                         print("enro 2")
                         result=messagebox.askokcancel("confirmacion","esta seguro de realizar esta reserva")
@@ -747,7 +771,62 @@ def hacerPauta():
     
 
 def eliminarReservas():
-    pass
+    """
+
+    Eliminar valla del modulo de reservado y recupera la informacion apoyandose
+    en bkp, de esta manera con la ref se trae toda la linea.
+    
+    """
+    global ubicacion,vAcumulado,vOcupado,vReservado,vDisponible,tVallas,infoValla,arrendar,cliente,agencia,valorT,valorD,duracion,fechaIni,fechaFin,referencia,combo
+    obtenerReferencia()
+    if referencia!="":
+        valla = combo.get()
+        valla = valla.split(',')
+        referencia = valla[1]
+        print(referencia)
+        result=messagebox.askokcancel("confirmacion","esta seguro de eliminar esta reserva")
+        if result==True:
+            vReservado.destroy()
+            BK=open(r"C:\Users\usuario\Desktop\Proyecto empresa\tkinter\datos\bkp.txt","r")
+            valla = []
+            for i in BK:
+                if referencia in i: # recupero la informacio la fguardo tanto en el archivo como en la lista dinamica
+                    VL=open(r"C:\Users\usuario\Desktop\Proyecto empresa\tkinter\datos\Vallas Desocupadas.txt","a")
+                    VL.write(i)
+                    VL.close()
+                    i = i.strip('\n')##1
+                    i = i.split(',')
+                    valla = i
+                    VallasLibres.append(valla)
+            BK.close()
+            # Ahora me falta ir a reservas y borrarlo de ahi tanto en archivo como en lista
+            #codigo para eliminar una linea y que siga con el formato
+            i=0
+            for j in vallasEnReserva:
+                if referencia==j[0]:
+                    vallasEnReserva.pop(i)
+                    break
+                else:
+                    i+=1
+            VL=open(r"C:\Users\usuario\Desktop\Proyecto empresa\tkinter\datos\Vallas Reservadas.txt","r")
+            axi=[]
+            for registro in VL:
+                if not(referencia in registro):
+                    axi.append(registro)
+            VL.close()
+            VL=open(r"C:\Users\usuario\Desktop\Proyecto empresa\tkinter\datos\Vallas Reservadas.txt","w")
+            for registro in axi:
+                VL.write(registro)
+            VL.close()
+            #fin del codigo
+            messagebox.showinfo("eliminado correctamente","La Reserva  ha sido eliminada correctamente")
+            i=0
+            Vallas.deiconify()
+        combo =referencia= ""
+        ubicacion=1
+    else:
+        messagebox.showwarning("Alerta","Debe escoger alguna opcion para continuar")
+
 def eliminarPautas():
     pass
 def renovarPautas():
@@ -773,37 +852,149 @@ def vDisponible():
 
     label=tk.Label(vDisponible, text="Vallas Disponibles",relief="raised",font=("Helveltica" , 18),bg="white").place(x=250,y=205)
     Ver= tk.Button(vDisponible, text=" Ver mas ", relief="raised",font=("Helveltica" , 12), command=datosValla).place(x=700,y=280)
-    Mapa= tk.Button(vDisponible, text=" Ver Galeria ",relief="raised",font=("Helveltica" , 12), command=mapa).place(x=20,y=320)
+    Mapa= tk.Button(vDisponible, text=" Ver Galeria ",relief="raised",font=("Helveltica" , 12), command=mape).place(x=20,y=320)
     reservar= tk.Button(vDisponible, text=" Reservar Valla ",relief="raised", font=("helvetica",12),command=reservarValla).place(x=200,y=500)
     arrendar= tk.Button(vDisponible, text=" Arrendar Valla ",relief="raised", font=("helvetica",12),command=arrendarValla).place(x=450,y=500)
     combo=ttk.Combobox(vDisponible,width=108,height=10)
     combo.place(x=20,y=280)
     Volver=tk.Button(vDisponible, text="volver",relief="raised",command=volver,font=("helvetica",16)).place(x=0,y=500)
-
-
+    ### ciclo para mostrar las vallas en el combobox ###
+    if (VallasLibres[0][0][0] != 'D'): 
+        for i in VallasLibres:
+            i[0]="Dirección: ,"+ str(i[0]+",")
+            i[1]="Referencia: ," +str(i[1]+",")
+            i[2]="Sentido: ,"+ str(i[2]+",")
+            i[5]="Valor: ,"+ str(i[5]+",")
+            
+    combo["values"]=VallasLibres
+    for i in VallasLibres:
+        i[0] = (i[0].split(','))[1]
+        i[1] = (i[1].split(','))[1]
+        i[2] = (i[2].split(','))[1]
+        i[5] = (i[5].split(','))[1]
     
 def vReservado():
     """
     Muestra las vallas reservadas de la empresa
     con opcion de ver mas informacion, como por el ejemplo los detalles de la pauta
     """
-    global Vallas,photo,ubicacion,vReservado,combo
+    ###################     Falta hacer modificar reserva    ################
+    global Vallas,photo,ubicacion,vReservado,combo,referencia
     ubicacion=4
     Vallas.withdraw()
     vReservado=tk.Toplevel()
     vReservado.geometry("800x600+300+150")
     vReservado.title("Vallas reservadas")
     vReservado.configure(background='white')
+
     e=tk.Label(vReservado,image=photo,width="300",height="150").place(x=0,y=0)
 
     label=tk.Label(vReservado, text="Vallas Reservadas",font=("Helveltica" , 18),bg="white").place(x=250,y=205)
     Ver= tk.Button(vReservado, text=" Ver mas ",relief="raised", font=("Helveltica" , 12), command=datosValla).place(x=700,y=280)
-    Mapa= tk.Button(vReservado, text=" Ver Galeria ",relief="raised",font=("Helveltica" , 12), command=mapa).place(x=20,y=320)
+    Mapa= tk.Button(vReservado, text=" Ver Galeria ",relief="raised",font=("Helveltica" , 12), command=mape).place(x=20,y=320)
     eliminarReserva= tk.Button(vReservado, text=" Eliminar reserva ",relief="raised", font=("helvetica",12),command= eliminarReservas).place(x=200,y=500)
-    arrendar= tk.Button(vReservado, text=" Arrendar Valla ",relief="raised", font=("helvetica",12),command=arrendarValla).place(x=450,y=500)
+    arrendar= tk.Button(vReservado, text=" Arrendar Valla ",relief="raised", font=("helvetica",12),command=resToPauta).place(x=450,y=500)
     combo=ttk.Combobox(vReservado,width=108,height=10)
     combo.place(x=20,y=280)
     Volver=tk.Button(vReservado, text="volver",relief="raised",command=volver,font=("helvetica",16)).place(x=0,y=500)
+    ### ciclo para mostrar las vallas en el combobox ### cambia con los valores de la reserva
+    for i in vallasEnReserva:
+        i[0]="Referencia: ,"+ str(i[0]+",")
+        i[1]="Cliente ," +str(i[1]+",")
+        i[2]="Agencia: ,"+ str(i[2]+",")
+        i[3]="Valor: ,"+ str(i[3]+",")
+            
+    combo["values"]=vallasEnReserva
+    for i in vallasEnReserva:
+        i[0] = (i[0].split(','))[1]
+        i[1] = (i[1].split(','))[1]
+        i[2] = (i[2].split(','))[1]
+        i[3] = (i[3].split(','))[1]
+        print("$$$$$$$$AQUI$$$$$$$$$$")
+        print(i)
+
+def resToPauta():
+    """
+    Paso mediante el cual se realiza una pauta a partir de una reserva, sin opcion de modificacion
+    """
+    global ubicacion,vAcumulado,vOcupado,vReservado,vDisponible,tVallas,infoValla,arrendar,cliente,agencia,valorT,valorD,duracion,fechaIni,fechaFin,referencia,combo
+    obtenerReferencia()
+    if referencia!="":
+        valla = combo.get()
+        valla = valla.split(',')
+        referencia = valla[1]
+        cliente = valla[3]
+        agencia = valla[5]
+        valor = valla[7]
+        info = (valla[8].split('}')) ### queda cada dato con un {
+        info.pop(0)
+        info.pop(len(info) - 1 )
+        x = 0
+        for k in info:
+            info[x] = k[3:]
+            x+=1
+
+        print("VALLA :" + str(info))
+        valor2 = info[0]
+        duracion = info[1]
+        fechaIni = info[2]
+        fechaFin = info[3]
+
+        result=messagebox.askokcancel("confirmacion","esta seguro de realizar esta pauta")
+        if result==True:
+            vReservado.destroy()
+            reserva=[referencia,cliente,agencia,valor,valor2,duracion,fechaIni,fechaFin] 
+            VallasArrendadas.append(reserva)
+            #codigo para eliminar una linea y que siga con el formato
+            i=0
+            for j in vallasEnReserva:
+                if referencia==j[0]:
+                    vallasEnReserva.pop(i)
+                    break
+                else:
+                    i+=1
+            print(vallasEnReserva)
+            VL=open(r"C:\Users\usuario\Desktop\Proyecto empresa\tkinter\datos\Vallas Reservadas.txt","r")
+            axi=[]
+            for registro in VL:
+                if not(referencia in registro):
+                    axi.append(registro)
+            VL.close()
+            VL=open(r"C:\Users\usuario\Desktop\Proyecto empresa\tkinter\datos\Vallas Reservadas.txt","w")
+            for registro in axi:
+                VL.write(registro)
+            VL.close()
+            #fin del codigo
+            archi=open(r"C:\Users\usuario\Desktop\Proyecto empresa\tkinter\datos\Vallas Arrendadas.txt","r")
+            ar=archi.readlines()
+            archi.close()
+            archi=open(r"C:\Users\usuario\Desktop\Proyecto empresa\tkinter\datos\Vallas Arrendadas.txt","r+")
+            archivok=archi.readlines()
+            if len(archivok)==0:
+                reserva=str(reserva).strip("''")
+                reserva=reserva.replace("'",'')
+                archi.write(reserva)
+                archi.close()
+                messagebox.showinfo("Pauta exitosa","La Pauta  ha sido registrada exitosamente")
+                i=0
+                final=1
+                Vallas.deiconify()
+            else:
+                reserva=str(reserva).strip("''")
+                reserva=reserva.replace("'",'')
+                archi.write('\n'+reserva)
+                archi.close()
+                messagebox.showinfo("Pauta exitosa","La pauta  ha sido registrada exitosamente")
+                i=0
+                final=1
+                Vallas.deiconify()
+            
+        combo =referencia= ""
+        ubicacion=1
+    else:
+        messagebox.showwarning("Alerta","Debe escoger alguna opcion para continuar")
+            
+    
 
     
 def vOcupado():
@@ -822,7 +1013,7 @@ def vOcupado():
 
     label=tk.Label(vOcupado, text="Vallas Arrendadas",relief="raised",font=("Helveltica" , 18),bg="white").place(x=250,y=205)
     Ver= tk.Button(vOcupado, text=" Ver mas ",relief="raised", font=("Helveltica" , 12), command=datosValla).place(x=700,y=280)
-    Mapa= tk.Button(vOcupado, text=" Ver Galeria ",relief="raised",font=("Helveltica" , 12), command=mapa).place(x=20,y=320)
+    Mapa= tk.Button(vOcupado, text=" Ver Galeria ",relief="raised",font=("Helveltica" , 12), command=mape).place(x=20,y=320)
     eliminarPauta= tk.Button(vOcupado, text=" Eliminar pauta ",relief="raised", font=("helvetica",12),command= eliminarPautas).place(x=200,y=500)
     renovarPauta= tk.Button(vOcupado, text=" renovar pauta ",relief="raised", font=("helvetica",12),command=renovarPautas).place(x=450,y=500)
     combo=ttk.Combobox(vOcupado,width=108,height=10)
@@ -835,7 +1026,7 @@ def acumuladoVallas():
     Muestra el total recaudo de las vallas basado en sus registros de pautas
     se pueden revisar de distintos años, aunque en algunos no hay informacion detallada
     """
-    global Vallas,photo,ubicacion,vAcumulado
+    global Vallas,photo,ubicacion,vAcumulado,VallasArrendadas
     ubicacion=6
     Vallas.withdraw()
     vAcumulado=tk.Toplevel()
@@ -843,8 +1034,37 @@ def acumuladoVallas():
     vAcumulado.title("Vallas Arrendadas")
     vAcumulado.configure(background='white')
     e=tk.Label(vAcumulado,image=photo,width="300",height="150").place(x=0,y=0)
-    numero=tk.Label(vAcumulado, text="numero de pautas").place(x=100,y=200)
-    acumulado=tk.Label(vAcumulado, text="Dinero acumulado con descuentos").place(x=100,y=300)
+    numero=tk.Label(vAcumulado, text="numero de pautas:",relief="raised",font=("Helveltica" , 15),bg="white").place(x=100,y=200)
+    acumulado=tk.Label(vAcumulado, text="Dinero acumulado con descuentos: ",relief="raised",font=("Helveltica" , 15),bg="white").place(x=100,y=300)
+    num=0
+    cos=0
+    for elem in VallasArrendadas:
+        cos += int(elem[4])
+        num += 1
+    cos = str(cos)
+    x=[]
+    for e in cos:
+        x.append(e)
+    x.reverse()
+    ax=""
+    i=0
+    j=0
+    while(len(x)  > j):
+        if(i == 3 ):
+            ax += "."
+            i=0
+        ax += x[j]
+        j+=1
+        i+=1
+    x=[]
+    for e in ax:
+        x.append(e)
+    x.reverse()
+    ax ="$ "
+    for e in x:
+        ax+=e
+    numeroP=tk.Label(vAcumulado, text=num,font=("Helveltica" , 18)).place(x=500,y=200)
+    acumuladoD=tk.Label(vAcumulado, text=ax,font=("Helveltica" , 18)).place(x=500,y=300)
     Volver=tk.Button(vAcumulado, text="volver",relief="raised",command=volver,font=("helvetica",16)).place(x=0,y=500)
     # se va a poder preguntar los acumulados de años previos a futuro se podria poner una meta y que el programa diga a cuanto se esta de dicha meta,puede ser mensual o como se quiera
 
@@ -988,7 +1208,7 @@ def inicio():
     """
     construye la venatana incial y sirve de conexion con los diferentes modulos con los que cuenta la aplicación
     """
-    global window,sol,luna,punto,ubicacion,referencia
+    global window,sol,luna,punto,ubicacion,referencia,primera
     window=tk.Tk()
     leerArchivos() # OK
     ubicacion = 0
@@ -996,7 +1216,7 @@ def inicio():
     photo=tk.PhotoImage(file= 'imagenes\Logo.gif')
     sol=tk.PhotoImage(file="imagenes\sol.png")
     luna=tk.PhotoImage(file="imagenes\luna.png")
-    punto=tk.PhotoImage(file=r"C:\Users\usuario\Desktop\Proyecto empresa\tkinter\imagenes\ubicacion.gif")
+    punto=tk.PhotoImage(file="imagenes/ubicacion.gif")
     e=tk.Label(window,image=photo,width="142",height="71").place(x=0,y=0)
     window.title("Publicidad Latina SAS")
     window.geometry("400x400+600+200")
@@ -1006,11 +1226,11 @@ def inicio():
     clientes= tk.Button(window, text= "clientes",width=6,height=2,relief="raised",font=("Helveltica" , 12),  command= irClientes).place(x=170,y=170)
     sitios = tk.Button(window, text= "sitios",width=6,height=2,relief="raised",font=("Helveltica" , 12),  command= irSitios).place(x=270,y=170)
     print( "aqui esta la referencia " + referencia)
+    primera=False
     window.mainloop()
 inicio()
 
     
-
 
 
 
